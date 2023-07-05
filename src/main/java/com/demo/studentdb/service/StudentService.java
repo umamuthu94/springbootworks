@@ -36,6 +36,7 @@ public class StudentService {
         updateStudentDetails.setMnumber(studentDetails.getMnumber());
         updateStudentDetails.setEmail(studentDetails.getEmail());
         updateStudentDetails.setAddress(studentDetails.getAddress());
+        updateStudentDetails.setYearofstudy(studentDetails.getYearofstudy());
         return studentRepo.save(updateStudentDetails);
     }
 }

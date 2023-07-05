@@ -23,5 +23,5 @@ public class StudentDetails {
     private String mnumber;
     private String email;
     private String address; //add a new entry
-
+    private String yearofstudy; //add a new entry yearofstudy 
 }
