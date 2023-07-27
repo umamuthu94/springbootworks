@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 import com.example.springbootEx.model.EmpDetails;
 import com.example.springbootEx.service.EmpService;
@@ -19,6 +20,7 @@ import com.example.springbootEx.service.EmpService;
 public class EmpController {
     
     @Autowired
+    private RestTemplate restTemplate;
     EmpService service;
 
     @PostMapping("/create")
@@ -43,4 +45,11 @@ public class EmpController {
     public void deleteEmployee(Integer id) {
         service.deleteEmployee(id);
     }
+
+    @GetMapping("/name")
+    public String companyname() {
+     String companydetails = restTemplate.getForObject("http://localhost:8082/company",String.class);
+    return companydetails;
+    }
+
 }
